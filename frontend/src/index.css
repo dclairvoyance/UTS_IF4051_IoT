@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -52,6 +56,37 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+table th, table td {
+  text-align: left;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+  color: #000;
+}
+
+table tr:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+table th {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  text-align: center;
+  background-color: #145DA0;
+  color: white;
 }
 
 @media (prefers-color-scheme: light) {

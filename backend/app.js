@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import {
   getAccounts,
   getBalance,
@@ -12,6 +13,7 @@ const app = express();
 const port = 5001;
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/accounts", async (req, res) => {
   try {
