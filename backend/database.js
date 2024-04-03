@@ -18,10 +18,10 @@ async function getAccounts() {
   return result.rows;
 }
 
-async function getBalance(accountId) {
+async function getBalance(rfidId) {
   const result = await pool.query(
     "SELECT balance FROM accounts WHERE id = $1",
-    [accountId]
+    [rfidId]
   );
   return { balance: result.rows[0].balance };
 }
