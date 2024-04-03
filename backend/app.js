@@ -51,7 +51,8 @@ app.put("/accounts/update_balance/:id", async (req, res) => {
 
 app.get("/transactions", async (req, res) => {
   try {
-    const transactions = await getTransactions();
+    const { account_holder } = req.query;
+    const transactions = await getTransactions(account_holder);
     res.json(transactions);
   } catch (error) {
     console.error(error);

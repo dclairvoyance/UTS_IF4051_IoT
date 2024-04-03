@@ -39,8 +39,8 @@ const Accounts = () => {
   }, []);
 
   return (
-    <div className="mx-auto dark:text-white">
-      <div className="mb-2 font-bold text-lg text-center">Accounts</div>
+    <div className="mx-auto p-4 md:p-12 dark:text-white">
+      <div className="mb-2 font-bold text-lg h-8">Accounts</div>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup, index) => (

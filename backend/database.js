@@ -31,11 +31,21 @@ async function updateBalance(accountId, amount) {
     "UPDATE accounts SET balance = balance + $2 WHERE id = $1 RETURNING *",
     [accountId, amount]
   );
+  await addTransaction(accountId, amount);
   return result.rows[0];
 }
 
-async function getTransactions() {
-  const result = await pool.query("SELECT * FROM transactions");
+async function getTransactions(accountHolder) {
+  const where =
+    accountHolder.trim() !== "" ? "WHERE accounts.holder LIKE $1" : "";
+  const query = `
+    SELECT * 
+    FROM transactions 
+    JOIN accounts ON transactions.account_id = accounts.id 
+    ${where}
+  `;
+  const values = accountHolder.trim() !== "" ? [`%${accountHolder}%`] : [];
+  const result = await pool.query(query, values);
   return result.rows;
 }
 

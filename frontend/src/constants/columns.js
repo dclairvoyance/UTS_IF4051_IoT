@@ -13,7 +13,7 @@ const ACCOUNTS_COLUMNS = [
     Header: "Balance",
     accessor: "balance",
     Cell: (props) => {
-      return addThousandSeparators(props.value);
+      return "Rp" + addThousandSeparators(props.value);
     },
   },
   {
@@ -26,4 +26,29 @@ const ACCOUNTS_COLUMNS = [
   },
 ];
 
-export { ACCOUNTS_COLUMNS };
+const TRANSACTIONS_COLUMNS = [
+  {
+    Header: "Time",
+    accessor: "time",
+    Cell: (props) => {
+      return new Date(props.value).toLocaleString();
+    },
+  },
+  {
+    Header: "Account ID",
+    accessor: "account_id",
+  },
+  {
+    Header: "Account Holder",
+    accessor: "holder",
+  },
+  {
+    Header: "Amount",
+    accessor: "amount",
+    Cell: (props) => {
+      return "Rp" + addThousandSeparators(props.value);
+    },
+  },
+];
+
+export { ACCOUNTS_COLUMNS, TRANSACTIONS_COLUMNS };

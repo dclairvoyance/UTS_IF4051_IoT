@@ -71,7 +71,7 @@ const TopUp = ({ onCloseModal, dataModal }) => {
           <div className="font-bold text-lg text-center mb-3">Top Up</div>
           <div className="mb-2">
             <span className="font-semibold">Initial balance: </span>
-            <span>{addThousandSeparators(dataModal.balance)}</span>
+            <span>Rp{addThousandSeparators(dataModal.balance)}</span>
           </div>
           <div className="mb-2">
             <div className="mb-1 font-semibold">Amount:</div>
@@ -143,12 +143,13 @@ const TopUp = ({ onCloseModal, dataModal }) => {
             </div>
 
             <div className="text-red text-xs">
-              (maksimal 100.000.000 aja, mending sedekah :D)
+              (maksimal Rp100.000.000 aja, mending sedekah :D)
             </div>
           </div>
           <div className="mb-2">
             <span className="font-semibold">Final balance: </span>
             <span>
+              Rp
               {customAmount === 0
                 ? buttonAmount === 0
                   ? addThousandSeparators(dataModal.balance)
