@@ -6,7 +6,7 @@ import { Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <div className="flex flex-col h-screen w-screen">
-      <nav className="bg-[#145da0] p-4 flex justify-between">
+      <nav className="bg-[#145da0] p-4 md:px-12 flex justify-between">
         <div>
           <Link to="/" className="text-white font-bold">
             e-Wallet

@@ -71,11 +71,6 @@ table th, table td {
   border: 1px solid #ddd;
 }
 
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-  color: #000;
-}
-
 table tr:hover {
   background-color: #ddd;
   color: #000;
