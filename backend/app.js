@@ -63,7 +63,7 @@ app.get("/transactions", async (req, res) => {
 app.get("/transactions/account/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const transactions = await getTransactionsByAccountId();
+    const transactions = await getTransactionsByAccountId(id);
     res.json(transactions);
   } catch (error) {
     console.error(error);

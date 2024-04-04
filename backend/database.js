@@ -65,6 +65,30 @@ async function addTransaction(accountId, amount) {
   return result.rows[0];
 }
 
+async function validatePin(rfidId, pin) {
+  const result = await pool.query(
+    "SELECT * FROM accounts WHERE id = $1 AND pin = $2",
+    [rfidId, pin]
+  );
+  return result.rows.length > 0;
+}
+
+async function changePin(pinOld, pinNew) {
+  // if pin is not pinOld, return status fail, else update to pinNew and return status success
+  const result = await pool.query("SELECT * FROM accounts WHERE pin = $1", [
+    pinOld,
+  ]);
+  if (result.rows.length === 0) {
+    return { status: "fail" };
+  } else {
+    await pool.query("UPDATE accounts SET pin = $1 WHERE pin = $2", [
+      pinNew,
+      pinOld,
+    ]);
+    return { status: "success" };
+  }
+}
+
 export {
   getAccounts,
   getBalance,
@@ -72,4 +96,6 @@ export {
   getTransactions,
   getTransactionsByAccountId,
   addTransaction,
+  changePin,
+  validatePin,
 };
