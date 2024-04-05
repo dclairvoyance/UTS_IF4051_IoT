@@ -59,23 +59,6 @@ String balance;
 // dynamic variables
 const int rfid_id = 1;
 
-// hash function (lib)
-unsigned int fnv1aHash(const String &str)
-{
-  const unsigned int fnv_offset_basis = 2166136261U;
-  const unsigned int fnv_prime = 16777619U;
-
-  unsigned int hash = fnv_offset_basis;
-
-  for (size_t i = 0; i < str.length(); ++i)
-  {
-    hash ^= (unsigned int)str[i];
-    hash *= fnv_prime;
-  }
-
-  return hash % 10000;
-}
-
 void setup()
 {
   // mqtt

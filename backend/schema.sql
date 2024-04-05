@@ -1,6 +1,3 @@
-CREATE DATABASE uts_iot;
-\c uts_iot;
-
 CREATE TABLE IF NOT EXISTS accounts (
     id SERIAL,
     holder VARCHAR(255) NOT NULL,

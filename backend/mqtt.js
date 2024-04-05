@@ -66,7 +66,6 @@ client.on("message", async (topic, message) => {
             )}`
           );
           await updateBalance(rfidId, -amount);
-          await addTransaction(rfidId, -amount);
           client.publish(
             "merchant-" + readerId,
             `transaction success ${addThousandSeparators(balance - amount)}`
